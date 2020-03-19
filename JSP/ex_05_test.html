@@ -11,18 +11,21 @@
 	.button2 {margin-left: 130px;}
 	
 </style>
+
 <script>
 	i=1;
 	
 	function display01(){
-		if(i>=8){i=1;}
-		else{i++}
+		console.log("변경 전: "+i);
+		if(i>=8){i=1; console.log("변경 후: "+i);}	
+		else{i++; console.log("변경 후: "+i);}	
 		document.getElementById("myImage").src = "최근상품0"+ i +".jpg";		
 	}
 	
 	function display02(){
-		if(i<=1){i=8;}
-		else{i--}
+		console.log("변경 전: "+i);
+		if(i<=1){i=8; console.log("변경 후: "+i);}	
+		else{i--; console.log("변경 후: "+i);}	
 		document.getElementById("myImage").src = "최근상품0"+ i +".jpg";
 	}
 </script>
