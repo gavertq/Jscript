@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript" src="ex_01_test.js">
+			
+	</script>
+	<style type="text/css">
+		table{border: 1px solid black;}
+		td{border: 1px solid black;}
+		th{border: 1px solid black;}
+	</style>
+</head>
+<body>
+	<button type="button" onclick="alert('클릭 발생')">클릭</button>
+	<script type="text/javascript">
+		var num = 1;
+		document.write("body 태그 내 실행 순서: "+num+"<br>")
+	</script>
+	
+	<hr>
+	<script type="text/javascript">
+		var num; //변수값이 없음
+		var obj= null //객체 변수 값이 없음
+
+		document.write("======타입======<br>")
+		document.write("1. 100: "+typeof 100+"<br>")
+		document.write("2. 10.5: "+typeof 10.5+"<br>")
+		document.write("3. 하나: "+typeof "하나"+"<br>")
+		document.write("4. true: "+typeof true+"<br>")
+		document.write("5. [1,2,3]: "+typeof [1,2,3]+"<br>")
+		document.write("6. {name: 홍길동}: "+typeof {name: "홍길동"}+"<br>")
+		document.write("7. num: "+typeof num+"<br>")
+		document.write("8. obj: "+typeof obj+"<br>")
+		document.write("=============<br>")
+
+		var test = prompt('당신의 이름은?')
+		var age = prompt(test+'님의 나이는?')
+		var addr = prompt(test+'님의 주소는?')
+		document.write("<table><tr><th>이름</th><th>나이</th><th>주소</th></tr><tr><td>"
+				+test+"</td><td>"+age+"</td><td>"+addr+"</td></tr></table>")
+	</script>
+</body>
+</html>
