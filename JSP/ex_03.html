@@ -62,14 +62,34 @@
 			for(y=1; y<=9;y++){
 				document.write(x+"*"+y+"="+(x*y)+"<br>");
 			}
-		}document.write("<hr>");	
+		}
+		document.write("<hr>");	
 	///////////////////////////////////////////////////////////
 	document.write("<h2>while</h2>");
 		var x=1; var sum=0;
 		while(x<=100){	sum+=x; x++; }
 		document.write("1~100까지의 합: <b>"+sum+"</b>");
-		
-		
+		document.write("<hr>");
+	//////////////////////////////////////////////////////////
+	document.write("<h2>!!테스트!!</h2>");
+		var floor = prompt("아파트 층 수는?");
+		document.write("<table border='1'>");
+		for(i = floor; i>=1; i--){
+			document.write("<tr><td>"+i+"01호</td><td>"+i+"02호</td><td>"+i+"03호</td><td>"+i+"04호</td></tr>")
+		}
+		document.write("</table>");
+
+	//////////////////////////////////////////////////////////
+	document.write("<h2>!!테스트!!</h2>");
+		var floor = prompt("아파트 층 수는?");
+		var room = prompt("아파트 호 수는?");
+		document.write("<table border='1'>");
+		for(i = floor; i>=1; i--){
+			document.write("<tr>")
+			for(j=1;j<=room;j++){document.write("<td>"+i+"0"+j+"호</td>")}
+			document.write("</tr>")
+		}
+		document.write("</table>");
 	</script>
 	
 </body>
