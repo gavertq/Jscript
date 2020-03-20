@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+	.div01{}
+	img{height: 100px; width: 100px;}
+	.div_p{position: absolute; z-index:1; top:0px; right:10px; }
+	.p_menu{text-align: center; background-color: red; width: 65px; padding: 0px 5px;}
+	.p_pic{position: flex; flex-flow:column; top:50px; right:10px;}
+</style>
+
+<script>
+i=0;
+k=1;;
+picture=[];
+
+function add(obj){
+	img = document.createElement('img');
+	img.setAttribute('src', obj);
+
+	picture.push(img);
+	if(i<5){
+		for(j=0; j<picture.length; j++){
+			document.getElementById('test').appendChild(picture[j]);
+		}
+	}else if(i==5){
+		
+		document.getElementById('test').removeChild(picture[0]);
+
+		var showPic = picture.slice(k,k+5);
+
+		for(j=0; j<5; j++){
+			
+			document.getElementById('test').appendChild(showPic[j]);
+		}
+		k++;
+	}else{
+		document.getElementById('test').removeChild(showPic[0]);
+		var showPic = picture.slice(k,k+5);
+
+		for(j=0; j<5; j++){
+			
+			document.getElementById('test').appendChild(showPic[j]);
+		}
+		k++;
+	}
+
+	i++;
+}
+</script>
+
+</head>
+<body>	
+
+	<div align="center">
+	<table border="1">
+		<tr>
+			<td><img src="최근상품01.jpg" onclick="add('최근상품01.jpg')"></td>	<td><img src="최근상품02.jpg" onclick="add('최근상품02.jpg')"></td>
+			<td><img src="최근상품03.jpg" onclick="add('최근상품03.jpg')"></td>	<td><img src="최근상품04.jpg" onclick="add('최근상품04.jpg')"></td>
+		</tr>
+		<tr>
+			<td><img src="최근상품05.jpg" onclick="add('최근상품05.jpg')"></td>	<td><img src="최근상품06.jpg" onclick="add('최근상품06.jpg')"></td>
+			<td><img src="최근상품07.jpg" onclick="add('최근상품07.jpg')"></td>	<td><img src="최근상품08.jpg" onclick="add('최근상품08.jpg')"></td>
+		</tr>
+	</table>
+	
+	<div class="div_p">
+		<p class="p_menu">목록이  없습니다</p>
+		<p class="p_pic" id='test'></p>
+	</div>
+
+	</div>
+
+</body>
+</html>
