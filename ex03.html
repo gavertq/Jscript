@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+	#show{display: none; position: absolute; z-index: 1;}
+	#show.a{display: block; background-color: rgba( 140, 140, 140, 0.7 ); width: 80%; height: 80%;}
+	#show.a div{border: 2px solid blue;  background-color: gray; opacity: 1.0; margin:auto; margin-top:10%;width: 60%; height: 50%;}
+	#show.a h4{text-align: center; color: red; font-size: 2.0em; margin: 0px;}
+	#show.a input{float: right;}
+	#show.a img{width: 400px; height: 300px; margin-left: 30px;}
+
+	.div_M{position: absolute; z-index: 0;}
+	.div_M img{width: 80px; height: 50px;}
+</style>
+
+<script>
+	function init(){
+		var p1 = document.getElementById('pic1');
+		var p2 = document.getElementById('pic2');
+		var p3 = document.getElementById('pic3');
+	
+		p1.addEventListener('click', pic_click);
+		p2.addEventListener('click', pic_click);
+		p3.addEventListener('click', pic_click);
+	
+	}
+
+	function pic_click(event){
+		let show = document.getElementById("show");
+		show.setAttribute('class','a');
+
+		switch(event.target.id){
+		case 'pic1':  document.getElementById('big_pic').src="최근상품01.jpg"; break;	
+		case 'pic2': document.getElementById('big_pic').src="최근상품02.jpg"; break;	
+		case 'pic3':  document.getElementById('big_pic').src="최근상품03.jpg"; break;	
+		}
+	}
+</script>
+
+</head>
+<body onload="init()">	
+
+<div id='show'><div><input type="button" value="X" onclick="show.removeAttribute('class');">
+	<h4>2 0 1 9 Super_Car</h4>
+	<hr>
+	<img id='big_pic' src=""></div>
+</div>
+<div class="div_M">
+	<h1>light box</h1>
+	<img id='pic1' src="최근상품01.jpg">
+	<img id='pic2' src="최근상품02.jpg">
+	<img id='pic3' src="최근상품03.jpg">
+</div>
+
+
+</body>
+</html>
