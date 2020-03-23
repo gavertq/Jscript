@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>갤러리</title>
+
+<style type="text/css">
+	.image{width: 400px; height: 600px; margin-bottom: 10px;}
+	.div{width: 400px; height: 650px; background-color: pink;}
+	.button1 {margin-left: 50px;}
+	.button2 {margin-left: 130px;}
+	
+</style>
+
+<script>
+	i=1;
+	
+	function display01(){
+		console.log("변경 전: "+i);
+		if(i>=8){i=1; console.log("변경 후: "+i);}	
+		else{i++; console.log("변경 후: "+i);}	
+		document.getElementById("myImage").src = "최근상품0"+ i +".jpg";		
+	}
+	
+	function display02(){
+		console.log("변경 전: "+i);
+		if(i<=1){i=8; console.log("변경 후: "+i);}	
+		else{i--; console.log("변경 후: "+i);}	
+		document.getElementById("myImage").src = "최근상품0"+ i +".jpg";
+	}
+</script>
+
+</head>
+<body>
+
+<script type="text/javascript">
+	document.write("<div class=\"div\">")
+	document.write("<img class=\"image\" id = \"myImage\" src=\"최근상품01.jpg\">")
+	document.write("<button class=\"button2\" onclick=\"display02()\">이전</button>")
+	document.write("<button class=\"button1\" onclick=\"display01()\">다음</button>")
+	document.write("</div>")
+</script>
+
+</body>
+</html>

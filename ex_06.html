@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script>
+	function main(){
+		alert('환영합니다')
+	}
+</script>
+
+<style type="text/css">
+	.div{background-color: pink; width: 120px; height: 50px; padding: 3px;}
+</style>
+<script type="text/javascript">
+	function mOver(obj){	obj.innerHTML="Thank You"}
+	function mOut(obj){	obj.innerHTML="Mouse Over Me"}
+</script>
+
+</head>
+<body>
+	<!-- <body onload="main()">에서 onload: 페이지 첫 실행시, 메소드 main() 자동 실행 -->
+	
+	<div class="div" onmouseover="mOver(this)" onmouseout="mOut(this)">Mouse Over Me</div>
+	
+<hr>	
+	<h1 onmouseover="style.color='red'" onmouseout="style.color='black'">Mouse over this text</h1>
+
+<hr>
+	=== 현재 시간 출력, 종료===<br>
+	<div id="digClock01"></div>
+	<button onclick="test()">클릭</button>
+	<button onclick="digClock()">setTimeout 시작</button>
+	<button onclick="click_setInterval()">setInterval 시작</button>
+	<button onclick="end()">종료</button>
+	
+	<script>
+		var e; var cnt=1;
+		
+		function test(){	console.log("클릭클릭" + (cnt++));}
+		
+		function digClock(){
+			var today = new Date();
+			var day = today.getMonth()+1 + "월 " + today.getDate()+"일 ";
+			var time = today.getHours() + "시 " + today.getMinutes() + "분 " + today.getSeconds() + "초";
+			document.getElementById("digClock01").innerHTML = day + time;
+			//e = setTimeout("digClock()", 1000); //setTimeout: 1초마다 digClock()호출(자기자신에 대한 값만 호출 가능)
+		}
+
+		function click_setInterval(){
+			e = setInterval('digClock()', 1000) //setInterval 다른 함수도 호출 가능
+		}
+		
+		function end(){
+			//clearTimeout(e) //clearTimeout: e를 멈춘다
+			clearInterval(e);
+		} 
+		
+		digClock(); //페이지 띄울때 시간 출력
+	</script>
+
+<hr>
+	=== 현재 시간 ===<br>
+	<p id="d1"></p> <p id="d2"></p> <p id="d3"></p>
+	<script>
+		var today = new Date();
+		document.getElementById("d1").innerHTML = today.getFullYear() + "년";
+		document.getElementById("d2").innerHTML = today.getMonth()+1 + "월 " + today.getDate()+"일";
+		document.getElementById("d3").innerHTML = today.getHours() + "시 " + today.getMinutes() + "분 " + today.getSeconds() + "초";
+	</script>
+
+<hr>
+	===배열  [ ]와 . ===<br>
+	<script>
+		var data={'f0':100, 'f1':200, 'f2':300};
+		data['f3']=400;	//배열 데이터 저장
+		data.f4=500;	//배열 데이터 저장
+		document.write(data.f0 + "<br>"); //f0키 데이터 조회
+		document.write(data.f1 + "<br>"); //f1키 데이터 조회
+		document.write(data['f2'] + "<br>");
+		document.write(data['f3'] + "<br>"); 
+		document.write(data['f4'] + "<br>");
+	</script>
+	
+<hr>
+	===forEach문===<br>
+	<script>
+		var kdata=['1','2','3','4'];
+		function printArr(item, index){
+			document.write("배열 데이터 ["+index+"]: "+item+"<br>");
+		}
+		kdata.forEach(printArr); //forEach문으로 printArr실행(item과 index는 자동으로 들어감)
+	</script>
+
+<hr>
+	===unshift & shift===<br>
+	<script>
+		var kdata=[' 서울', ' 부산'];
+		
+		var p1=kdata.unshift(' new! 청주', ' new! 세종'); //앞에 붙임
+		document.write("데이터: " + p1 + "<p/>");
+		document.write("배열 데이터: " + kdata + "<p/>");
+		
+		var p2 = kdata.shift(); //앞에서 부터 뺌
+		document.write("kdata.shift 데이터: " + p2 + "<p/>");
+		document.write("배열 데이터: "+ kdata + "<p/>");
+	</script>
+
+<hr>
+	===Push & Pop===<br>
+	<script>
+		var kdata=[' 서울', ' 부산', ' 구포', ' 대구', ' 대전'];
+		
+		var p1=kdata.push(' new! 청주', ' new! 세종'); //뒤에 붙임
+		document.write("데이터: " + p1 + "<p/>");
+		document.write("배열 데이터: " + kdata + "<p/>");
+		
+		var p2 = kdata.pop(); //뒤에서부터 뺌
+		document.write("kdata.pop 데이터: " + p2 + "<p/>");
+		document.write("배열 데이터: "+ kdata + "<p/>");
+	</script>
+
+<hr>
+	===slice===<br>
+<script>
+	var kdata=[' 서울', ' 부산', ' 구포', ' 대구', ' 인천', ' 대전', ' 세종'];
+	var str1=kdata.slice(0,4);
+	var str2=kdata.slice(2,-1);
+	var str3=kdata.slice(-4,-2);
+	
+	document.write("배열 전체: ["+kdata+"]<p/>");
+	document.write("부분 배열1 slice(0,4) : " + str1 + "<p/>");
+	document.write("부분 배열2 slice(2,-1): " + str2 + "<p/>");
+	document.write("부분 배열3 slice(-4,-2): " + str3 + "<p/>");
+</script>
+
+<hr>
+	===concat===<br>
+<script>
+	var city01=[" 01=서울", " 부산"," 대전"];
+	var city02=[" 02=대구", " 광주"," 인천"];
+	var city03=[" 03=전주", " 부여"," 세종"];
+	var data1=city01.concat(" 수원", " 오산");
+	var data2=city01.concat(city02);
+	var data3=city01.concat(city03, city02);
+	document.write("결과1: "+data1+"<p/>");
+	document.write("결과2: "+data2+"<p/>");
+	document.write("결과3: "+data3+"<p/>");
+</script>
+
+<hr>
+	===join===<br>
+	
+<script>
+	var city=["서울", "부산", "대전"];
+	var joindata1=city.join();
+	var joindata2=city.join('-');
+	var joindata3=city.join(' 그리고 ');
+	document.write("조인 결과1: "+joindata1+"<p/>");
+	document.write("조인 결과2: "+joindata2+"<p/>");
+	document.write("조인 결과3: "+joindata3+"<p/>");
+</script>
+
+<hr>
+	===배열===<br>
+	
+	<script type="text/javascript">
+		var arrdata=[];
+		function insertArr(){ //배열 만들기
+			var i = 0;
+			for(i=0; i<=99; i++){
+				arrdata[i]=i+1; //1~100저장
+				document.write(arrdata[i]+" "); //데이터 출력
+			}
+			document.write("<p>배열 크기: "+arrdata.length +"</p>");
+		}
+		
+		function delDataArr(){ //배열 1~100을 0으로 채우기
+			var i;
+			for(i=0; i<arrdata.length; i++)	arrdata[i]=0; //배열 데이터 0으로 초기화
+			selectArr();
+		}
+		
+		function allDelArr(){
+			arrdata.length=0; //배열 초기화
+			selectArr();
+		}
+		
+		function selectArr(){ //delDataArr(), allDelArr()메소드 작동시
+			var i;
+			for(i=0; i<arrdata.length;i++)	{document.write(arrdata[i]+" ");}
+			document.write("<p>배열 크기:"+arrdata.length+"</p>")
+			document.write("<a href='ex_06.html'>돌아가기</a>")
+		}
+		insertArr();
+	</script>
+
+	<button type="button" onclick="delDataArr()">배열 데이터 초기화</button>
+	<button type="button" onclick="allDelArr()">배열 데이터삭제</button>
+	
+<hr>
+<script type="text/javascript">
+	var city=["Seoul", "Busan", "Incheon"]; //배열 리터럴
+	city[3]=12345
+	city[4]=true	/*여러 타입 넣을 수 있어..*/
+	function printArr(){
+		var i;
+		for(i=0; i<city.length; i++){
+			document.write("배열 데이터["+i+"] = "+city[i]+"<br>")
+		}
+	}
+	printArr();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<script>
+	////1
+		var img;
+		function add(){
+			img = document.createElement('img'); //child명 설정
+			
+			//img.src='test8.jpg';	img.width = 100;	img.height = 122; 또는...
+			
+			img.setAttribute('src', 'test8.jpg');
+			img.setAttribute('width', 100);
+			img.setAttribute('height', 122);
+			
+			//document.body.appendChild(img); //방법1. body에 child 추가
+			document.getElementById('test').appendChild(img); //방법2. id가 test인 곳에 child 추가
+		}
+		function remove(){
+			//document.body.removeChild(img); //방법1. body에 child 삭제
+			document.getElementById('test').removeChild(img); //방법2. id가 test인 곳에 child 삭제
+		}
+	</script>
+	
+	<script>
+	////2
+		function insertOpt(){
+			var insert = document.getElementById("insert");
+			var arr = ['야구', '축구', '배구', '족구'];
+			for(var i=0; i<arr.length; i++){
+				var opt = document.createElement("option");
+				opt.value=arr[i]; opt.innerHTML=arr[i]; insert.appendChild(opt);
+			}
+			
+		}
+	</script>
+</head>
+<body onload="insertOpt()">	
+	<!-- 2 -->
+	<select id="insert"></select>
+
+	<!-- 1 -->
+	<p id="test">test</p>
+	<a href="#" onclick="add()">[이미지 추가]</a>
+	<a href="#" onclick="remove()">[이미지 삭제]</a>
+</body>
+</html>

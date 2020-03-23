@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+	function test(){
+		//fo.submit()
+		location.href="ex_11.html"
+	}
+</script>
+
+</head>
+<body>
+
+<form id="fo" action="ex_11.html">
+	이름<input type="text" name="name"><br>
+	주소<input type="text" name="addr"><br>
+	<input type="submit" value="서브밋"><br>
+	<input type="button" value="메소드로 이동" onclick="test()"><br>
+	<input type="button" value="직접 이동" onclick="location.href='ex_11.html'"><br>
+</form>
+
+</body>
+</html>
