@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+	#show{display: none; position: absolute; z-index: 1;}
+	#show.a{display: block; background-color: gray; opacity: 0.8; width: 80%; height: 80%;}
+	#show.a div{display: block; border: 2px solid blue;  background-color: gray; margin:auto; margin-top:10%;width: 60%; height: 60%;}
+	#show.a h4{text-align: center; color: red; font-size: 2.0em;}
+	
+	.div_M{position: absolute; z-index: 0;}
+	.div_M img{width: 80px; height: 50px;}
+</style>
+
+<script>
+function init(){
+	var p1 = document.getElementById('pic1');
+	var p2 = document.getElementById('pic2');
+	var p3 = document.getElementById('pic3');
+	
+	p1.addEventListener('click', pic_click);
+	p2.addEventListener('click', pic_click);
+	p3.addEventListener('click', pic_click);
+
+}
+
+	function pic_click(event){
+		let show = document.getElementById("show");
+		show.setAttribute('class','a');
+		
+		switch(event.target.id){
+		case 'pic1':  document.getElementById('big_pic').src="quiz.png"; break;	
+		case 'pic2': document.getElementById('big_pic').src="quiz.png"; break;	
+		case 'pic3':  document.getElementById('big_pic').src="quiz.png"; break;	
+	}
+</script>
+
+</head>
+<body onload="init()">	
+
+<div id='show'><div><h4>2 0 1 9 Super_Car</h4><input type="button" value="X" onclick="show.removeAttribute('class');"> <hr><img id='big_pic' src=""></div></div>
+<div class="div_M">
+	<h1>light box</h1>
+	<img id='pic1' src="quiz.png">
+	<img id='pic2' src="room.jpg" onclick="pic_click()">
+	<img id='pic3' src="test8.jpg" onclick="pic_click()">
+</div>
+
+
+</body>
+</html>
