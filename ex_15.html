@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+	#remove{display:none;}
+	#remove.a{display:block; background: green;} <!-- block안쓰면 안보임 -->
+</style>
+
+<script>
+	function init(){
+		var t1 = document.getElementById('target1');
+		var t2 = document.getElementById('target2');
+		t1.addEventListener('click', btn_listner);
+		t2.addEventListener('click', btn_listner);
+	}
+	
+	function btn_listner(event){
+		switch(event.target.id){
+		case 'target1': alert(1+'선택: target1'); break;
+		case 'target2': alert(2+'선택: target2'); break;
+		}
+		
+		let remove = document.getElementById("remove");
+		remove.setAttribute('class','a'); //클래스 a를 추가(set)한다
+	}
+	
+	function blockRM(){
+		let remove = document.getElementById("remove");
+		remove.removeAttribute('class'); //클래스를 제거(remove)한다
+	}
+</script>
+
+</head>
+<body onload="init()">
+
+<input type="button" id="target1" value="button1"/>
+<input type="button" id="target2" value="button2"/>
+
+<div id="remove">
+	<h3>안녕하세요</h3>
+	<input type="button" value="되돌리기" onclick="blockRM()">
+</div>
+
+<div><h1>되돌리기 연습</h1></div>
+
+</body>
+</html>

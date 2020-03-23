@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+	#tagAdd{width: 50%; border: 1px solid #999999;}
+	.accountCell{width: 40%; text-align: center;}
+	.balanceCell{text-align: center;}
+	tr:nth-child(even){background-color: beige;}
+</style>
+
+<script>
+	function tagAddFunc(){
+		let arrName=['김하나', '홍두이', '고서이', '고너이']
+		let arrAddr=['종각', '종로2', '공덕', '마포구']
+		let table= document.getElementById('tagAdd');
+		
+		for(let i =0; i<arrName.length; i++){
+			tr=document.createElement('tr');
+			//
+			td=document.createElement('td');
+			td.innerText=arrName[i];
+			td.className="accountCell";
+			tr.appendChild(td);
+			
+			td=document.createElement('td');
+			td.innerText = arrAddr[i];
+			td.className="balanceCell";
+			tr.appendChild(td);
+			//
+			table.appendChild(tr);
+		}
+	}
+</script>
+
+</head>
+<body onload="tagAddFunc()">
+	<table id="tagAdd">
+		<tr><th>이 &nbsp;&nbsp; 름</th><th>주 &nbsp;&nbsp; 소</th></tr>
+	</table>
+
+
+</body>
+</html>

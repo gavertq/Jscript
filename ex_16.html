@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+	#pic{display:none; margin-left: 100px; margin-top: 50px; text-align: center;}
+	#pic.a{display:block; background: pink; width: 90px; height: 100px;}
+	#pic.b{display:block; background: gold; width: 90px; height: 100px;}
+	#pic.c{display:block; background: gray; width: 90px; height: 100px;}
+	#pic.d{display:block; background: red; width: 90px; height: 100px;}
+</style>
+
+<script>
+var e; flag=false;
+
+	function init(){
+		var t1 = document.getElementById('target1');
+		var t2 = document.getElementById('target2');
+		var t3 = document.getElementById('target3');
+		var t4 = document.getElementById('target4');
+		var t5 = document.getElementById('target5');
+		
+		t1.addEventListener('click', btn_listner);
+		t2.addEventListener('click', btn_listner);
+		t3.addEventListener('click', btn_listner);
+		t4.addEventListener('click', btn_listner);
+		t5.addEventListener('click', btn_listner);
+	}
+
+	function btn_listner(event){
+		let pic = document.getElementById("pic");
+		switch(event.target.id){
+		case 'target1': click('a',1); break;						
+		case 'target2': click('b',2); break;						
+		case 'target3': click('c',3); break;						
+		case 'target4': flag=false; auto(); break;						
+		case 'target5': flag=true; pic.removeAttribute('class'); break;						
+		}
+	}
+	
+	function click(obj, num){
+		flag=true; 
+		pic.removeAttribute('class');
+		pic.setAttribute('class',obj);	
+		document.getElementById('dialog').innerHTML="버튼"+num+" 클릭";
+	}
+	
+	function auto(){	
+		if(flag==false){
+			pic.setAttribute('class','d');
+			e = setInterval("auto_re()", 500);
+			document.getElementById('dialog').innerHTML="버튼4 클릭";
+		} else clearInterval(e);
+	}
+	
+	function auto_re(){
+		if(flag==false){
+			pic.removeAttribute('class');
+			e = setInterval("auto()", 500);
+		} else clearInterval(e);
+	}
+	
+</script>
+
+</head>
+<body onload="init()">	
+
+<div>
+	<input type="button" id="target1" value="버튼1"/>
+	<input type="button" id="target2" value="버튼2"/>
+	<input type="button" id="target3" value="버튼3"/>
+	<input type="button" id="target4" value="자동"/>
+	<input type="button" id="target5" value="지우기"/>
+</div>
+<div id="pic"><h4 id="dialog"></h4></div>
+
+</body>
+</html>
