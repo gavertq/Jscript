@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+	.input{color: gray; margin: 1px;}
+	span{color: red; font-weight: bold;}
+</style>
+
+<script>
+	function join(){
+		var id= document.getElementById("ID").value;
+		var pw= document.getElementById("PW").value; console.log(pw);
+		var pwc= document.getElementById("PWC").value;
+		var flag = false;
+
+		if(id==""){
+			alert("아이디는 필수 사항입니다.");
+			document.getElementById("ID").focus();
+		} else if(pw==""){
+			alert("비밀번호는 필수 사항입니다.");
+			document.getElementById("PW").focus();
+		} else if(pw!="" && pw!=pwc){
+			alert("비밀번호를 다시 확인해주세요");
+			document.getElementById("PWC").focus();
+		} else if(id!="" && pw!="" && pw==pwc) {flag=true;}
+		
+		if(flag==true){
+			window.open("ex_12_testJoin.html","_self");
+		}
+	}
+</script>
+
+</head>
+<body>
+
+<form>
+	<h1>계정 등록 페이지 입니다.</h1>
+	<input class="input" type="text" placeholder="아이디" id="ID"><span>(*필수 항목)</span><br>
+	<input class="input" type="text" placeholder="비밀번호"  id="PW"><span>(*필수 항목)</span><br>
+	<input class="input" type="text" placeholder="비밀번호 확인"  id="PWC"> 확인!!<br>
+	<input class="input" type="text" placeholder="이름"  id="name"><br>
+	<hr>
+	<input type="button" value="등록" onclick="join()">
+</form>
+
+</body>
+</html>

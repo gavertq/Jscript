@@ -32,17 +32,15 @@ function add(obj){
 
 		var showPic = picture.slice(k,k+5);
 
-		for(j=0; j<5; j++){
-			
+		for(j=0; j<5; j++){			
 			document.getElementById('test').appendChild(showPic[j]);
 		}
 		k++;
 	}else{
-		document.getElementById('test').removeChild(showPic[0]);
+
 		var showPic = picture.slice(k,k+5);
 
-		for(j=0; j<5; j++){
-			
+		for(j=0; j<5; j++){			
 			document.getElementById('test').appendChild(showPic[j]);
 		}
 		k++;
